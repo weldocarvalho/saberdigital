@@ -1,0 +1,264 @@
+@import './globalConfig.css';
+
+#botao_primario {
+  background-color: #e900c6;
+  color: #000024;
+  border: none;
+  font-weight: bold;
+  padding: 0.5rem;
+}
+
+#botao_secundario {
+  background-color: #000024;
+  border: solid 0.1rem #dcdcdc;
+  color: #dcdcdc;
+}
+
+#botao_terciario {
+  background-color: #dcdcdc;
+  border: none;
+  color: #000024;
+  font-weight: bold;
+}
+
+#falso_btn_primario {
+  background-color: #e900c6;
+  color: #000024;
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+}
+
+#falso_btn_secundario {
+  background-color: #e900c6;
+  color: #000024;
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+}
+
+#falso_btn_terciario {
+  background-color: #dcdcdc;
+  color: #000024;
+  padding: 0.7rem;
+  border-radius: 0.5rem;
+}
+
+#form_campos_titulo {
+  color: #00e9ab;
+  font-size: 1rem;
+}
+
+#form_input {
+  background-color: #000024;
+  border: solid 0.1rem #00e9ab;
+  color: #dcdcdc;
+  font-size: 1rem;
+}
+
+#wrapper_erros {
+  background-color: #dcdcdc;
+}
+
+#erros {
+  background-color: #ececec;
+  color: red;
+  z-index: 12;
+  padding: 1rem;
+  margin: 0.5rem 1.5rem;
+  border-radius: 0.5rem;
+}
+
+#form_erros {
+  background-color: #ececec;
+  color: red;
+  padding: 1rem;
+  margin-right: 1rem;
+  border-radius: 0.5rem;
+}
+
+/* SESSÃO CADASTRO DO USUÁRIO */
+#cadastro_wrapper_form {
+  background-color: #dcdcdc;
+  height: 100vh;
+}
+
+#cadastro_form {
+  background-color: #000024;
+  width: 25rem;
+  border-radius: 0.5rem;
+  padding: 2rem;
+}
+
+#cadastro_categorias {
+  background-color: #000024;
+  border: solid 0.1rem #00e9ab;
+  color: #dcdcdc;
+}
+
+#cadastro_disciplinas {
+  background-color: #000024;
+  border: solid 0.1rem #00e9ab;
+  color: #dcdcdc;
+}
+
+/* SESSÃO LOGIN */
+#login_wrapper {
+  height: 100vh;
+}
+
+#login_logo {
+  font-size: 3rem;
+  color: #dcdcdc;
+}
+
+#login_lado_esquerdo {
+  width: 30%;
+}
+
+#login_lado_direito {
+  width: 70%;
+  background-color: #dcdcdc;
+}
+
+#login_form_wrapper {
+  background-color: #000024;
+  width: 23rem;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+
+#login_titulo {
+  color: #00e9ab;
+  font-size: 2rem;
+  margin-bottom: 0.1rem;
+}
+
+#login_paragrafo {
+  color: #dcdcdc;
+}
+
+/* SESSÃO DASHBOARD */
+#dashboard_icones {
+  font-size: 3rem;
+  color: #dcdcdc;
+}
+
+#dashboard_titulo {
+  font-size: 1.2rem;
+  color: #dcdcdc;
+}
+
+#dashboard_paragrafo {
+  font-size: 1rem;
+  color: #dcdcdc;
+}
+
+#dashboard_curso {
+  color: #e900c6;
+  font-size: 1.3rem;
+}
+
+/* SESSÃO TÓPICOS */
+#topicos_paragrafo {
+  font-size: 1.3rem;
+}
+
+#topicos_form {
+  width: 35rem;
+  background-color: #f0f0f0;
+  border-radius: 0.5rem;
+}
+
+#topicos_form_btn_voltar {
+  background-color: #cccccc;
+  border: none;
+  color: #000024;
+  font-weight: bold;
+  margin-left: 1.2rem;
+}
+
+#topicos_form_input {
+  background-color: #f0f0f0;
+  border: solid 0.1rem #9b9b9b;
+}
+
+#topicos_toggle {
+  background-color: #000024;
+  border: solid 0.2rem #00e9ab;
+  color: #e900c6;
+  font-size: 1.2rem;
+  width: 80%;
+}
+
+#topicos_icones {
+  font-size: 1.2rem;
+  color: #00e9ab;
+  margin-left: 0.7rem;
+}
+
+#topicos_icones_add_aula {
+  border: solid 0.1rem #e900c6;
+  border-radius: 0.2rem;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  color: #dcdcdc;
+  margin: 1rem 0rem;
+}
+
+#topicos_botao_deletar {
+  background: none;
+}
+
+#topicos_aulas_titulo {
+  color: #dcdcdc;
+  font-size: 1.1rem;
+  margin: 0.2rem 0rem;
+}
+
+/* SESSÃO AULAS */
+#aulas_form {
+  width: 37rem;
+  background-color: #f0f0f0;
+  border-radius: 0.5rem;
+}
+
+#aulas_form_input {
+  background-color: #f0f0f0;
+  border: solid 0.1rem #9b9b9b;
+}
+
+#aulas_titulo {
+  color: #00e9ab;
+  font-size: 1.1rem;
+  margin: 0rem 0rem;
+}
+
+#aulas_btn_add {
+  margin-left: 1.5rem;
+  border-color: #e900c6;
+  background: none;
+  color: #dcdcdc;
+}
+
+#aulas_botao_deletar {
+  background: none;
+}
+
+#aulas_icones {
+  /* font-size: 1.2rem; */
+  color: #e900c6;
+  margin-left: 0.7rem;
+}
+
+#arquivos_aula_titulo {
+  color: #00e9ab;
+  font-size: 1.2rem;
+}
+
+#biblioteca_disciplinas_titulo {
+  font-size: 1.4rem;
+  color: #e900c6;
+}
+
+#biblioteca_professor_nome {
+  color: #00e9ab;
+}

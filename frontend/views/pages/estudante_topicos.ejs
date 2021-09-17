@@ -1,0 +1,98 @@
+<%- include('./includes/head') %>
+
+  <body>
+
+    <%- include('./includes/navbar') %>
+
+      <div class="container mt-5">
+
+        <% if (topicos.length==0) { %>
+          <div id="topicos_paragrafo">
+            <p>Não há tópicos cadastrados para essa disciplina.</p>
+          </div>
+
+          <% } else { %>
+
+            <div class="row">
+
+              <div>
+
+                <% let disciplinaCadastrada = null %>
+
+                <% for (let i = 0; i < disciplinasCadastradas.length; i++) { %>
+                  <% disciplinaCadastrada = disciplinasCadastradas[i]%>
+
+                  <% if(disciplinaCadastrada.EstudanteDisciplina.id_professor === id_professor) {%>
+                    <% break %>
+                  <% } %>
+
+                  <% disciplinaCadastrada = null %>
+
+                <% } %>
+
+                <% if (disciplinaCadastrada === null) { %>
+
+                  <form action="/disciplinas/<%= id_disciplina %>/professores/<%= id_professor %>/inscricao" method="post">
+                    <button class="mb-2" id="falso_btn_terciario" type="submit">
+                      + disciplina
+                    </button>
+                  </form>
+
+                <% } %>
+
+              </div>
+
+              <% topicos.forEach(topico=> { %>
+
+                <div class="d-flex align-items-center">
+
+                  <button
+                    class="btn btn-primary mt-2 p-2"
+                    id="topicos_toggle"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#tpcs_togg_collap">
+                    <%= topico.nome %>
+                  </button>
+
+                  <!-- BOTÃO MATERIAL DE APOIO -->
+                  <div class="mt-2">
+                    <a href="/disciplinas/<%= id_disciplina %>/professores/<%= id_professor %>/topicos/<%= topico.id %>/arquivos">
+                      <i class="far fa-folder-open" id="aulas_icones" style="font-size: 1.6rem;"></i>
+                    </a>
+                  </div>
+
+                </div>
+
+                <% if (topico.aulas.length==0) { %>
+                  <div class="collapse" id="tpcs_togg_collap">
+                    <p id="topicos_aulas_titulo">
+                      não há aulas cadastradas para esse tópico.
+                    </p>
+                  </div>
+
+                  <% } else { %>
+
+                    <% topico.aulas.forEach(aula=> { %>
+                      <div class="collapse" id="tpcs_togg_collap">
+                        <p id="topicos_aulas_titulo">
+                          <a href="/disciplinas/<%= id_disciplina %>/professores/<%= id_professor %>/topicos/<%= topico.id %>/aulas">
+                            - <%= aula.nome %>
+                          </a>
+                        </p>
+                      </div>
+                    <% }) %>
+
+                  <% } %>
+
+              <% }) %>
+
+            </div>
+
+          <% } %>
+
+      </div>
+
+  </body>
+
+  </html>

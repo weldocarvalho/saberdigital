@@ -1,0 +1,107 @@
+<%- include('./includes/head') %>
+
+  <script>
+    function load(url) {
+      document.getElementById("embed_url").src = url;
+    }
+  </script>
+
+  <body>
+
+    <%- include('./includes/navbar') %>
+
+      <div class="container my-5">
+
+        <div class="row">
+
+          <% if (topico.aulas.length==0) { %>
+            <div id="topicos_paragrafo">
+              <p>Não há aulas cadastradas para nesse tópico.</p>
+            </div>
+
+            <a href="/disciplinas/<%= id_disciplina %>/topicos/<%= id_topico %>/aulas/form">
+              <button class="btn btn-primary" id="botao_primario">
+                + nova aula
+              </button>
+            </a>
+
+            <% } else { %>
+
+              <div class="col-md-6">
+
+                <iframe width="560" height="315" id="embed_url" src="<%- topico.aulas[0].url %>"
+                  title="YouTube video player" frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen></iframe>
+
+              </div>
+
+              <div class="col-md-6">
+
+                <div class="d-flex align-items-center mb-2">
+
+                  <a href="/disciplinas/<%= id_disciplina %>/topicos/">
+                    <button type="button" class="btn btn-primary" id="botao_terciario">
+                      <%= topico.nome %>
+                    </button>
+                  </a>
+
+                  <a href="/disciplinas/<%= id_disciplina %>/topicos/<%= id_topico %>/aulas/form">
+                    <button type="button" class="btn btn-primary" id="aulas_btn_add">
+                      <i class="fas fa-plus"></i>
+                      aula
+                    </button>
+                  </a>
+
+                </div>
+
+
+                <% topico.aulas.forEach((aula, index)=> { %>
+                  <div class="d-flex align-items-center" id="aulas_grupo">
+
+                    <div>
+                      <p onclick="load(`<%- aula.url %>`)" id="aulas_titulo">
+                        - <%= aula.nome %>
+                      </p>
+                    </div>
+
+                    <div>
+                      <!-- BOTÃO PARA EDITAR UMA AULA -->
+                      <a href="/disciplinas/<%= id_disciplina %>/topicos/<%= id_topico %>/aulas/<%= aula.id %>/form">
+                        <i class="far fa-edit" id="aulas_icones"></i>
+                      </a>
+                    </div>
+
+                    <div>
+                      <!-- BOTÃO PARA APAGAR UM TÓPICO -->
+                      <form
+                        action="/disciplinas/<%= id_disciplina %>/topicos/<%= id_topico %>/aulas/<%= aula.id %>/?_method=DELETE"
+                        method="post" enctype="multipart/form-data">
+
+                        <button id="aulas_botao_deletar" type="submit">
+                          <i class="far fa-trash-alt" id="aulas_icones"></i>
+                        </button>
+
+                      </form>
+                    </div>
+
+                  </div>
+                  <% }) %>
+
+              </div>
+
+              <% } %>
+
+        </div>
+
+        <% if (topico.aulas.length > 0) { %>
+          <a href="/disciplinas/<%= id_disciplina %>/topicos/<%= id_topico %>/arquivos">
+            <p class="my-5">MATERIAL DE APOIO</p>
+          </a>
+        <% } %>
+
+      </div>
+
+  </body>
+
+  </html>

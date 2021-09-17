@@ -1,0 +1,104 @@
+<%- include('./includes/head') %>
+
+  <body>
+
+    <%- include('./includes/navbar') %>
+
+      <% if (topicos.length==0) { %>
+
+        <div class="container mt-5">
+
+          <div id="topicos_paragrafo">
+            <p>Não há tópicos cadastrados para essa disciplina.</p>
+          </div>
+
+          <a href="/disciplinas/<%= id_disciplina %>/topicos/form">
+            <button class="btn btn-primary" id="botao_primario">
+              + novo tópico
+            </button>
+          </a>
+
+        </div>
+
+        <% } else { %>
+
+          <div class="container my-5">
+
+            <a href="/disciplinas/<%= id_disciplina %>/topicos/form">
+              <button class="btn btn-primary mb-2" id="botao_terciario">
+                + tópico
+              </button>
+            </a>
+
+            <% topicos.forEach(topico=> { %>
+
+              <div class="d-flex align-items-center">
+
+                <button class="btn btn-primary mt-2 p-2" id="topicos_toggle" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#tpcs_togg_collap">
+                  <%= topico.nome %>
+                </button>
+
+                <!-- BOTÃO MATERIAL DE APOIO -->
+                <div class="mt-2">
+                  <a href="/disciplinas/<%= id_disciplina %>/topicos/<%= topico.id %>/arquivos">
+                    <i class="far fa-folder-open" id="aulas_icones" style="font-size: 1.6rem;"></i>
+                    <!-- <i class="fas fa-file-archive" id="aulas_icones"></i> -->
+                  </a>
+                </div>
+
+                <!-- BOTÃO PARA EDITAR UM TÓPICO -->
+                <div class="mt-2">
+                  <a href="/disciplinas/<%= disciplina.id %>/topicos/<%= topico.id %>/form">
+                    <i class="far fa-edit" id="topicos_icones"></i>
+                  </a>
+                </div>
+
+                <!-- BOTÃO PARA APAGAR UM TÓPICO -->
+                <div class="mt-2">
+                  <form action="/disciplinas/<%= disciplina.id %>/topicos/<%= topico.id %>/?_method=DELETE"
+                    method="post" enctype="multipart/form-data">
+                    <button id="topicos_botao_deletar" type="submit">
+                      <i class="far fa-trash-alt" id="topicos_icones"></i>
+                    </button>
+                  </form>
+                </div>
+
+              </div>
+
+              <% if (topico.aulas.length==0) { %>
+
+                <div class="collapse" id="tpcs_togg_collap">
+                  <p id="topicos_aulas_titulo">
+                    não há aulas cadastradas para esse tópico.
+                  </p>
+                </div>
+
+                <% } else { %>
+
+                  <% topico.aulas.forEach(aula=> { %>
+                    <div class="collapse" id="tpcs_togg_collap">
+                      <p id="topicos_aulas_titulo">
+                        <a href="/disciplinas/<%= id_disciplina %>/topicos/<%= topico.id %>/aulas">
+                          - <%= aula.nome %>
+                        </a>
+                      </p>
+                    </div>
+                  <% }) %>
+
+                <% } %>
+
+                <div class="collapse" id="tpcs_togg_collap">
+                  <a href="/disciplinas/<%= id_disciplina %>/topicos/<%= topico.id %>/aulas/form">
+                    <i class="fas fa-plus" id="topicos_icones_add_aula"> aula</i>
+                  </a>
+                </div>
+
+              <% }) %>
+
+            <% } %>
+          </div>
+
+  </body>
+
+  </html>

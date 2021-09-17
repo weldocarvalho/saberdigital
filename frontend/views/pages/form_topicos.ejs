@@ -1,0 +1,36 @@
+<%- include('./includes/head') %>
+
+  <body>
+
+    <%- include('./includes/navbar') %>
+
+      <div class="container">
+
+        <form action="/disciplinas/<%= id_disciplina %>/topicos" method="post" class="my-5 p-3" id="topicos_form">
+
+          <div class="mb-3">
+            <span id="topics_fields">nome do tópico:</span>
+            <label for="nome" class="form-label"></label>
+            <input type="text" name="nome" class="form-control" id="topicos_form_input"
+              placeholder="digite o nome do tópico">
+          </div>
+
+          <button type="submit" class="btn btn-primary my-3" id="botao_secundario">adicionar</button>
+
+        </form>
+
+        <% if (erros.length > 0) { %>
+          <div>
+            <% erros.forEach(erro => { %>
+              <span id="form_erros">
+                <%= erro %>
+              </span>
+            <% }) %>
+          </div>
+        <% } %>
+
+      </div>
+
+  </body>
+
+  </html>
